@@ -1,0 +1,53 @@
+Test project /home/assassinaj602/Projects/New folder (4)/github_pr/mobile_fine_tuner/MobileFineTuner_clean/build_host
+      Start  1: PowerMonitor
+ 1/24 Test  #1: PowerMonitor .....................   Passed    0.02 sec
+      Start  2: QKTSoftmaxGrad
+ 2/24 Test  #2: QKTSoftmaxGrad ...................   Passed    0.03 sec
+      Start  3: RMSNormUnit
+ 3/24 Test  #3: RMSNormUnit ......................   Passed    0.08 sec
+      Start  4: RepeatKVSoftmaxGrad
+ 4/24 Test  #4: RepeatKVSoftmaxGrad ..............   Passed    0.03 sec
+      Start  5: AttentionSingleLayerBackward
+ 5/24 Test  #5: AttentionSingleLayerBackward .....   Passed   39.82 sec
+      Start  6: LoRALinearUnit
+ 6/24 Test  #6: LoRALinearUnit ...................   Passed    0.02 sec
+      Start  7: LoRARoundTrip
+ 7/24 Test  #7: LoRARoundTrip ....................   Passed    0.07 sec
+      Start  8: ModelRegistry
+ 8/24 Test  #8: ModelRegistry ....................   Passed    0.01 sec
+      Start  9: AutoModel
+ 9/24 Test  #9: AutoModel ........................   Passed    0.04 sec
+      Start 10: GPT2LoRATwoStepSmoke
+10/24 Test #10: GPT2LoRATwoStepSmoke .............   Passed    0.02 sec
+      Start 11: GemmaLoRARoundTrip
+11/24 Test #11: GemmaLoRARoundTrip ...............   Passed    0.03 sec
+      Start 12: MemoryEfficientAttentionGrad
+12/24 Test #12: MemoryEfficientAttentionGrad .....   Passed    0.01 sec
+      Start 13: ApplyRoPELayout
+13/24 Test #13: ApplyRoPELayout ..................   Passed    0.00 sec
+      Start 14: AutogradLeafAccum
+14/24 Test #14: AutogradLeafAccum ................   Passed    0.01 sec
+      Start 15: DTypeMixedPrecision
+15/24 Test #15: DTypeMixedPrecision ..............   Passed    0.02 sec
+      Start 16: TensorSlice
+16/24 Test #16: TensorSlice ......................   Passed    0.01 sec
+      Start 17: SelectedTokenLMLoss
+17/24 Test #17: SelectedTokenLMLoss ..............   Passed    0.01 sec
+      Start 18: TokenizerFactory
+18/24 Test #18: TokenizerFactory .................   Passed    0.03 sec
+      Start 19: TokenizerHFGolden
+19/24 Test #19: TokenizerHFGolden ................   Passed    0.01 sec
+      Start 20: JsonlMaskAlignment
+20/24 Test #20: JsonlMaskAlignment ...............   Passed    0.01 sec
+      Start 21: ConcatOpTest
+21/24 Test #21: ConcatOpTest .....................   Passed    0.01 sec
+      Start 22: QwenMultimodalAutograd
+22/24 Test #22: QwenMultimodalAutograd ...........   Passed    0.06 sec
+      Start 23: QwenMultimodalModel
+23/24 Test #23: QwenMultimodalModel ..............   Passed    0.05 sec
+      Start 24: QwenMultimodalGradCheck
+24/24 Test #24: QwenMultimodalGradCheck ..........   Passed    0.07 sec
+
+100% tests passed, 0 tests failed out of 24
+
+Total Test time (real) =  40.65 sec

@@ -1,0 +1,27 @@
+==========================================================
+Running MultimodalTrainer 20-Step Fixed-Batch Test
+==========================================================
+Step  1/20 - Loss: 4.18758
+Step  2/20 - Loss: 3.82704
+Step  3/20 - Loss: 3.65624
+Step  4/20 - Loss: 3.30028
+Step  5/20 - Loss: 3.21651
+Step  6/20 - Loss: 3.19594
+Step  7/20 - Loss: 3.17586
+Step  8/20 - Loss: 3.15265
+Step  9/20 - Loss: 3.13372
+Step 10/20 - Loss: 3.11177
+Step 11/20 - Loss: 3.09059
+Step 12/20 - Loss: 3.07554
+Step 13/20 - Loss: 3.06880
+Step 14/20 - Loss: 3.06654
+Step 15/20 - Loss: 3.06330
+Step 16/20 - Loss: 3.05452
+Step 17/20 - Loss: 3.04322
+Step 18/20 - Loss: 3.03333
+Step 19/20 - Loss: 3.02768
+Step 20/20 - Loss: 3.02461
+--------------------------------------------------------
+Initial Loss: 4.18758 -> Final Loss: 3.02461
+Total Loss Decrease: 1.16297 (27.77195%)
+[SUCCESS] MultimodalTrainer 20-step convergence test passed!
