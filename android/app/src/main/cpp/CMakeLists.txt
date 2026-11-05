@@ -4,7 +4,7 @@ project("multimodal_trainer" LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(UPSTREAM_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../upstream_MobileFineTuner/operator")
+set(UPSTREAM_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../MobileFineTuner_clean/operator")
 
 add_definitions(-DUSE_NEW_AUTOGRAD_ENGINE)
 add_definitions(-DDISABLE_BLAS_COMPLETELY)
@@ -39,6 +39,7 @@ set(OPERATOR_SOURCES
     ${UPSTREAM_DIR}/finetune_ops/graph/model_registry.cpp
     ${UPSTREAM_DIR}/finetune_ops/graph/auto_model.cpp
     ${UPSTREAM_DIR}/finetune_ops/graph/qwen_model.cpp
+    ${UPSTREAM_DIR}/finetune_ops/graph/qwen_multimodal.cpp
     ${UPSTREAM_DIR}/finetune_ops/data/mmlu_dataset.cpp
     ${UPSTREAM_DIR}/finetune_ops/data/wikitext2_dataset.cpp
     ${UPSTREAM_DIR}/finetune_ops/nn/lora_linear.cpp
@@ -47,6 +48,7 @@ set(OPERATOR_SOURCES
     ${UPSTREAM_DIR}/finetune_ops/optim/trainer.cpp
     ${UPSTREAM_DIR}/finetune_ops/optim/auto_trainer.cpp
     ${UPSTREAM_DIR}/finetune_ops/optim/gemma_trainer.cpp
+    ${UPSTREAM_DIR}/finetune_ops/optim/multimodal_trainer.cpp
     ${UPSTREAM_DIR}/finetune_ops/graph/lora_saver.cpp
 )
 

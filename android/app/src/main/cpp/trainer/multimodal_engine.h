@@ -1,7 +1,8 @@
 #pragma once
 
 #include "finetune_ops/core/tensor.h"
-#include "finetune_ops/graph/qwen_model.h"
+#include "finetune_ops/graph/qwen_multimodal.h"
+#include "finetune_ops/optim/multimodal_trainer.h"
 #include "finetune_ops/core/ops.h"
 #include "finetune_ops/core/tokenizer.h"
 #include <string>
@@ -9,10 +10,10 @@
 #include <memory>
 
 struct MultimodalTrainerState {
-    std::shared_ptr<ops::QwenModel> model;
+    std::shared_ptr<ops::QwenMultimodalModel> model;
+    std::shared_ptr<ops::MultimodalTrainer> trainer;
     std::shared_ptr<ops::SimpleTokenizer> tokenizer;
-    ops::QwenConfig config;
-    ops::TensorPtr W_proj; // [hidden_size, vision_dim] trainable projector
+    ops::QwenMultimodalConfig config;
     int64_t vision_dim = 32;
     int64_t num_patches = 4;
     int64_t max_seq_len = 16;

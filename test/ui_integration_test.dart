@@ -3,6 +3,7 @@ import 'package:multimodal_trainer/main.dart';
 import 'package:multimodal_trainer/screens/dataset_screen.dart';
 import 'package:multimodal_trainer/screens/graph_screen.dart';
 import 'package:multimodal_trainer/screens/training_screen.dart';
+import 'package:multimodal_trainer/widgets/loss_graph.dart';
 
 void main() {
   testWidgets('Phase 4: UI Navigation & Interactive Screen Tests', (WidgetTester tester) async {
@@ -10,8 +11,8 @@ void main() {
     await tester.pumpAndSettle();
 
     // 1. Verify Home dashboard elements render
-    expect(find.text('MobileFineTuner — Qwen3.5-2B'), findsOneWidget);
-    expect(find.text('Target VLM: Qwen3.5-2B'), findsOneWidget);
+    expect(find.text('MobileFineTuner — Multimodal Autograd'), findsOneWidget);
+    expect(find.text('Backbone: Qwen-Multimodal-Autograd (Tiny Backbone)'), findsOneWidget);
     expect(find.text('Start'), findsOneWidget);
 
     // 2. Navigate to Trainer tab by text label
@@ -38,7 +39,7 @@ void main() {
     await tester.tap(find.text('Start'));
     await tester.pump();
     // Confirm state has progressed
-    expect(find.text('Live Loss Curve'), findsOneWidget);
+    expect(find.byType(LossGraph), findsOneWidget);
 
     // Stop to clean up timers
     await tester.ensureVisible(find.text('Stop'));
