@@ -11,25 +11,6 @@ class LossGraph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (points.isEmpty) {
-      return Card(
-        elevation: 4,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        child: const Padding(
-          padding: EdgeInsets.all(24.0),
-          child: Center(
-            child: Text(
-              'No training steps recorded yet.\nPress Start to begin training.',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white70),
-            ),
-          ),
-        ),
-      );
-    }
-
-    final spots = points;
-
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -59,10 +40,10 @@ class LossGraph extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  'Latest: ${spots.last.y.toStringAsFixed(4)}',
-                  style: const TextStyle(
+                  points.isNotEmpty ? 'Latest: ${points.last.y.toStringAsFixed(4)}' : 'Standby',
+                  style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.greenAccent,
+                    color: points.isNotEmpty ? Colors.greenAccent : Colors.white60,
                   ),
                 ),
               ],
@@ -70,9 +51,17 @@ class LossGraph extends StatelessWidget {
             const SizedBox(height: 16),
             SizedBox(
               height: 200,
-              child: LineChart(
-                LineChartData(
-                  gridData: FlGridData(
+              child: points.isEmpty
+                  ? const Center(
+                      child: Text(
+                        'No training steps recorded yet.\nPress Start to begin training.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white70),
+                      ),
+                    )
+                  : LineChart(
+                      LineChartData(
+                        gridData: FlGridData(
                     show: true,
                     drawVerticalLine: true,
                     getDrawingHorizontalLine: (value) => FlLine(
@@ -115,13 +104,13 @@ class LossGraph extends StatelessWidget {
                   minY: 0.0,
                   lineBarsData: [
                     LineChartBarData(
-                      spots: spots,
+                      spots: points,
                       isCurved: true,
                       color: Colors.deepPurpleAccent,
                       barWidth: 3,
                       isStrokeCapRound: true,
                       dotData: FlDotData(
-                        show: spots.length <= 20,
+                        show: points.length <= 20,
                       ),
                       belowBarData: BarAreaData(
                         show: true,
