@@ -14,40 +14,28 @@ class ModelStatusCard extends StatelessWidget {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Configure Model Weight Path'),
-        content: Column(
+        title: const Text('Model Architecture Details'),
+        content: const Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Target VLM: Qwen3.5-2B (~4.5 GB)\nEnter local file path or asset path:',
+            Text(
+              'Backbone: Qwen Architecture (Tiny In-Memory)\n'
+              '• Hidden Size: 64\n'
+              '• Intermediate Size: 128\n'
+              '• Layers: 2\n'
+              '• Attention Heads: 4 (KV heads: 2)\n'
+              '• Vocab Size: 256 tokens\n'
+              '• Trainable Projector: W_proj [64, 32]\n\n'
+              'Note: Base transformer weights are frozen. Only the multimodal visual projection matrix is updated via backward pass.',
               style: TextStyle(fontSize: 13, color: Colors.white70),
-            ),
-            const SizedBox(height: 12),
-            TextField(
-              controller: controller,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Model Path (.gguf)',
-                hintText: '/sdcard/Download/qwen3.5-2b.gguf',
-              ),
             ),
           ],
         ),
         actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx),
-            child: const Text('Cancel'),
-          ),
           ElevatedButton(
-            onPressed: () {
-              final newPath = controller.text.trim();
-              if (newPath.isNotEmpty) {
-                modelProvider.loadModel(newPath);
-              }
-              Navigator.pop(ctx);
-            },
-            child: const Text('Load Model'),
+            onPressed: () => Navigator.pop(ctx),
+            child: const Text('Close'),
           ),
         ],
       ),
@@ -79,8 +67,8 @@ class ModelStatusCard extends StatelessWidget {
                       const SizedBox(width: 8),
                       Flexible(
                         child: Text(
-                          'Target VLM: ${status.modelName}',
-                          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          'Backbone: ${status.modelName}',
+                          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -88,16 +76,16 @@ class ModelStatusCard extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  icon: const Icon(Icons.edit_note),
-                  tooltip: 'Change Model Path',
+                  icon: const Icon(Icons.info_outline),
+                  tooltip: 'Model Info',
                   onPressed: () => _showPathDialog(context, modelProvider),
                 ),
               ],
             ),
             const SizedBox(height: 8),
-            Text('Model Size: ${status.size} (Unquantized VLM weights)'),
-            Text('Host Memory: ${status.memoryUsage} / ${status.totalMemory}'),
-            Text('Active Path: ${status.modelPath}', overflow: TextOverflow.ellipsis),
+            Text('Architecture: ${status.size} (2 layers, 4 attention heads)'),
+            Text('Device Memory: ${status.memoryUsage} active / ${status.totalMemory} total'),
+            Text('Model Source: ${status.modelPath}', overflow: TextOverflow.ellipsis),
             const SizedBox(height: 12),
             Wrap(
               spacing: 8,

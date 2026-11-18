@@ -11,7 +11,24 @@ class LossGraph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spots = points.isEmpty ? [const FlSpot(0, 1.0)] : points;
+    if (points.isEmpty) {
+      return Card(
+        elevation: 4,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        child: const Padding(
+          padding: EdgeInsets.all(24.0),
+          child: Center(
+            child: Text(
+              'No training steps recorded yet.\nPress Start to begin training.',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white70),
+            ),
+          ),
+        ),
+      );
+    }
+
+    final spots = points;
 
     return Card(
       elevation: 4,

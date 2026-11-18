@@ -23,9 +23,7 @@ class TrainingProvider extends ChangeNotifier {
   String? lastCheckpointPath;
   String? lastExportedPath;
 
-  final List<FlSpot> _lossHistory = [
-    const FlSpot(0, 1.0),
-  ];
+  final List<FlSpot> _lossHistory = [];
 
   List<FlSpot> get lossHistory => List.unmodifiable(_lossHistory);
   List<String> get logs => Logger.logs;
@@ -52,7 +50,6 @@ class TrainingProvider extends ChangeNotifier {
 
     if (status.state != TrainingState.paused) {
       _lossHistory.clear();
-      _lossHistory.add(const FlSpot(0, 1.0));
     }
 
     status = TrainingStatus.running(
@@ -86,7 +83,8 @@ class TrainingProvider extends ChangeNotifier {
           loss: event.loss,
           accuracy: event.accuracy,
         );
-        Logger.log('Step ${event.step}/${event.totalSteps} (Epoch ${event.epoch}) - Loss: ${event.loss.toStringAsFixed(4)} - Real Accuracy: ${event.accuracy.toStringAsFixed(1)}%');
+        Logger.log('Step ${event.step}/${event.totalSteps} (Epoch ${event.epoch}) - Loss: ${event.loss.toStringAsFixed(4)} - GradNorm: ${event.gradientNorm.toStringAsFixed(4)} - Accuracy: ${event.accuracy.toStringAsFixed(1)}%');
+        print('[DEVICE_STEP] Step ${event.step}/${event.totalSteps} (Epoch ${event.epoch}) - Loss: ${event.loss.toStringAsFixed(4)} - GradNorm: ${event.gradientNorm.toStringAsFixed(4)} - Accuracy: ${event.accuracy.toStringAsFixed(1)}%');
         notifyListeners();
       },
       onDone: () {

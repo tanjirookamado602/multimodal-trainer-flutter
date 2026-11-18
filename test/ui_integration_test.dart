@@ -3,7 +3,6 @@ import 'package:multimodal_trainer/main.dart';
 import 'package:multimodal_trainer/screens/dataset_screen.dart';
 import 'package:multimodal_trainer/screens/graph_screen.dart';
 import 'package:multimodal_trainer/screens/training_screen.dart';
-import 'package:multimodal_trainer/widgets/loss_graph.dart';
 
 void main() {
   testWidgets('Phase 4: UI Navigation & Interactive Screen Tests', (WidgetTester tester) async {
@@ -39,7 +38,7 @@ void main() {
     await tester.tap(find.text('Start'));
     await tester.pump();
     // Confirm state has progressed
-    expect(find.byType(LossGraph), findsOneWidget);
+    expect(find.text('Live Loss Curve'), findsOneWidget);
 
     // Stop to clean up timers
     await tester.ensureVisible(find.text('Stop'));
