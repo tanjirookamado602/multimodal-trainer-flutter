@@ -164,3 +164,4 @@ In compliance with standing rule 5, the following boundaries and limitations are
 
 5. **GGUF Model Export (Stub):**
    - GGUF export writes a metadata stub file; true GGUF serialization for the multimodal projector remains future work.
+
