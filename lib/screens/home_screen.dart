@@ -64,7 +64,7 @@ class _DashboardView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'MobileFineTuner — Qwen3.5-2B',
+          'MobileFineTuner — Multimodal Autograd',
           style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 0.5),
         ),
         centerTitle: true,
@@ -145,15 +145,17 @@ class _DashboardView extends StatelessWidget {
                               if (context.mounted) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
-                                    content: Text(ok ? 'Checkpoint saved successfully!' : 'Failed to save checkpoint'),
-                                    backgroundColor: ok ? Colors.green : Colors.red,
+                                    content: Text(ok 
+                                        ? 'Checkpoint: Native C++ stub invoked (serialization not yet implemented)' 
+                                        : 'Failed to call save checkpoint'),
+                                    backgroundColor: ok ? Colors.orange : Colors.red,
                                   ),
                                 );
                               }
                             }
                           : null,
                       icon: const Icon(Icons.save),
-                      label: const Text('Save Checkpoint'),
+                      label: const Text('Save Checkpoint (Stub)'),
                     ),
                     ElevatedButton.icon(
                       onPressed: provider.canExport
@@ -162,15 +164,17 @@ class _DashboardView extends StatelessWidget {
                               if (context.mounted) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
-                                    content: Text(ok ? 'Model exported to GGUF format!' : 'Failed to export model'),
-                                    backgroundColor: ok ? Colors.blueAccent : Colors.red,
+                                    content: Text(ok 
+                                        ? 'GGUF Export: Native C++ stub invoked (serialization not yet implemented)' 
+                                        : 'Failed to call export model'),
+                                    backgroundColor: ok ? Colors.orange : Colors.red,
                                   ),
                                 );
                               }
                             }
                           : null,
                       icon: const Icon(Icons.file_upload),
-                      label: const Text('Export Model'),
+                      label: const Text('Export Model GGUF (Stub)'),
                     ),
                   ],
                 ),

@@ -22,10 +22,10 @@ class ModelStatus {
 
   ModelStatus({
     this.isLoaded = false,
-    this.modelName = 'Qwen3.5-2B',
-    this.size = '4.5 GB',
-    this.memoryUsage = '0 MB',
+    this.modelName = 'Qwen-Multimodal-Autograd (Tiny Backbone)',
+    this.size = '64 hidden / 256 vocab',
+    this.memoryUsage = '64 MB',
     this.totalMemory = '8 GB',
-    this.modelPath = 'assets/models/Qwen3.5-2B-BF16.gguf',
+    this.modelPath = 'Native In-Memory C++ Model (hidden=64, layers=2)',
   });
 }
