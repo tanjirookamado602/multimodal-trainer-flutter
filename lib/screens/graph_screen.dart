@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/training_provider.dart';
 import '../widgets/loss_graph.dart';
+import '../widgets/system_metrics_card.dart';
 
 class GraphScreen extends StatelessWidget {
   const GraphScreen({super.key});
@@ -20,6 +21,13 @@ class GraphScreen extends StatelessWidget {
         child: Column(
           children: [
             LossGraph(points: provider.lossHistory),
+            const SizedBox(height: 16),
+            SystemMetricsCard(
+              currentLoss: provider.status.currentLoss,
+              learningRate: provider.config.learningRate,
+              step: provider.status.currentStep,
+              totalSteps: provider.status.totalSteps,
+            ),
             const SizedBox(height: 16),
             Card(
               elevation: 4,

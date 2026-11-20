@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../providers/training_provider.dart';
 import '../widgets/loss_graph.dart';
 import '../widgets/progress_indicator.dart';
+import '../widgets/system_metrics_card.dart';
 import '../widgets/training_controls.dart';
 
 class TrainingScreen extends StatelessWidget {
@@ -33,6 +34,13 @@ class TrainingScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             LossGraph(points: provider.lossHistory),
+            const SizedBox(height: 16),
+            SystemMetricsCard(
+              currentLoss: provider.status.currentLoss,
+              learningRate: provider.config.learningRate,
+              step: provider.status.currentStep,
+              totalSteps: provider.status.totalSteps,
+            ),
             const SizedBox(height: 16),
           ],
         ),
