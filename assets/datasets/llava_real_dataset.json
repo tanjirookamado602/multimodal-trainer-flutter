@@ -1,0 +1,102 @@
+[
+  {
+    "image": "assets/sample_data/000000033471.jpg",
+    "instruction": "What are the colors of the bus in the image?",
+    "response": "The bus in the image is white and red."
+  },
+  {
+    "image": "assets/sample_data/000000052846.jpg",
+    "instruction": "Where is the cat positioned in the image?",
+    "response": "The cat is positioned on top of the back of the couch in the living room."
+  },
+  {
+    "image": "assets/sample_data/000000334872.jpg",
+    "instruction": "Are the people in the image skiing downhill or cross-country skiing?",
+    "response": "The people in the image are cross-country skiing in the woods, as they are skiing on a trail rather than a steep slope."
+  },
+  {
+    "image": "assets/sample_data/000000319154.jpg",
+    "instruction": "What color is the dog in the image?",
+    "response": "The dog in the image is brown."
+  },
+  {
+    "image": "assets/sample_data/000000398214.jpg",
+    "instruction": "What type of sign and traffic device can be seen in the image?",
+    "response": "In the image, there is a street sign and a traffic light above a city road."
+  },
+  {
+    "image": "assets/sample_data/000000520873.jpg",
+    "instruction": "What is the girl eating in the image?",
+    "response": "The girl in the image is eating a dessert, which appears to be a graham cracker treat or a cookie sandwich."
+  },
+  {
+    "image": "assets/sample_data/000000575173.jpg",
+    "instruction": "What type of aircraft is shown in the image?",
+    "response": "The image shows a large passenger jet belonging to China Airlines."
+  },
+  {
+    "image": "assets/sample_data/000000087286.jpg",
+    "instruction": "What is hanging from the traffic light pole?",
+    "response": "A green street sign is hanging from the traffic light pole."
+  },
+  {
+    "image": "assets/sample_data/000000032286.jpg",
+    "instruction": "How many chocolate-covered doughnuts are there in the image?",
+    "response": "There are seven chocolate-covered doughnuts in the image."
+  },
+  {
+    "image": "assets/sample_data/000000175217.jpg",
+    "instruction": "What is the color of the sink and vanity in the bathroom?",
+    "response": "The sink and vanity in the bathroom are beige in color."
+  },
+  {
+    "image": "assets/sample_data/000000230238.jpg",
+    "instruction": "What is the main color of the vase in the image?",
+    "response": "The main color of the vase in the image is blue."
+  },
+  {
+    "image": "assets/sample_data/000000392166.jpg",
+    "instruction": "Is the man on the skateboard holding a dog?",
+    "response": "Yes, the man on the skateboard is holding a dog in his arm."
+  },
+  {
+    "image": "assets/sample_data/000000521031.jpg",
+    "instruction": "What objects are the main focus of the image?",
+    "response": "The main focus of the image is a collection of stuffed toy bears."
+  },
+  {
+    "image": "assets/sample_data/000000199318.jpg",
+    "instruction": "What is the prominent feature of the large building in the image?",
+    "response": "The prominent feature of the large building in the image is the tall clock tower."
+  },
+  {
+    "image": "assets/sample_data/000000483357.jpg",
+    "instruction": "What color is the bathroom in the image?",
+    "response": "The bathroom in the image is white, with white fixtures."
+  },
+  {
+    "image": "assets/sample_data/000000197680.jpg",
+    "instruction": "How many glass walls are there in the bathroom beside the large tub?",
+    "response": "There are two glass walls beside the large tub in the bathroom."
+  },
+  {
+    "image": "assets/sample_data/000000121795.jpg",
+    "instruction": "Is there a person standing next to water in the image?",
+    "response": "Yes, there is a person standing next to some blue water in the image."
+  },
+  {
+    "image": "assets/sample_data/000000341431.jpg",
+    "instruction": "What time of day does the image capture?",
+    "response": "The image captures a night scene."
+  },
+  {
+    "image": "assets/sample_data/000000300011.jpg",
+    "instruction": "What type of vehicle is parked in front of the Kingfisher airplane?",
+    "response": "A food service truck is parked in front of the Kingfisher airplane."
+  },
+  {
+    "image": "assets/sample_data/000000120375.jpg",
+    "instruction": "What type of vehicle is driving down the street in the image?",
+    "response": "A red sports utility vehicle (SUV) is driving down the street in the image."
+  }
+]

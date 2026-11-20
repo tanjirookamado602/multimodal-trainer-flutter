@@ -42,12 +42,20 @@ class DatasetScreen extends StatelessWidget {
                     Text('Total Samples: ${dataset?.sampleCount ?? 0}'),
                     Text('Source: ${provider.config.datasetPath}'),
                     const SizedBox(height: 12),
-                    Row(
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
                       children: [
                         ElevatedButton.icon(
+                          onPressed: () => provider.loadDataset('assets/datasets/llava_real_dataset.json'),
+                          icon: const Icon(Icons.photo_library, size: 18),
+                          label: const Text('Real LLaVA (COCO 2017)'),
+                          style: ElevatedButton.styleFrom(backgroundColor: Colors.deepPurple),
+                        ),
+                        OutlinedButton.icon(
                           onPressed: () => provider.loadDataset('assets/datasets/sample_dataset.json'),
-                          icon: const Icon(Icons.refresh),
-                          label: const Text('Reload Asset Dataset'),
+                          icon: const Icon(Icons.refresh, size: 18),
+                          label: const Text('Local 10 Samples'),
                         ),
                       ],
                     ),
