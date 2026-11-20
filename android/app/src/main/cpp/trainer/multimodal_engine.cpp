@@ -81,7 +81,7 @@ MultimodalTrainerState* init_multimodal_trainer(const char* model_path) {
     state->model->freeze_base();
 
     MultimodalTrainerConfig trainer_cfg;
-    trainer_cfg.learning_rate = 0.001f;
+    trainer_cfg.learning_rate = 1e-5f; // Standard research LR (1e-5)
     trainer_cfg.max_grad_norm = 1.0f;
     trainer_cfg.weight_decay = 0.0f;
     state->trainer = std::make_shared<MultimodalTrainer>(*state->model, trainer_cfg);
@@ -195,9 +195,24 @@ MultimodalStepResult execute_multimodal_training_step(
         res.accuracy = 0.0f; // Multi-class causal LM
         res.success = true;
 
-        LOGI("[DEVICE_STEP] step=%zu loss=%.4f grad_norm=%.4f lr=%.5f",
+        double rss_mb = 0.0;
+        {
+            std::ifstream status_file("/proc/self/status");
+            std::string line;
+            while (std::getline(status_file, line)) {
+                if (line.rfind("VmRSS:", 0) == 0) {
+                    std::stringstream ss(line.substr(6));
+                    double kb = 0.0;
+                    ss >> kb;
+                    rss_mb = kb / 1024.0;
+                    break;
+                }
+            }
+        }
+
+        LOGI("[DEVICE_STEP] step=%zu loss=%.4f grad_norm=%.4f lr=%.5f rss=%.1fMB",
              state->trainer->step_count(), res.loss, res.gradient_norm,
-             state->trainer->optimizer()->get_learning_rate());
+             state->trainer->optimizer()->get_learning_rate(), rss_mb);
 
     } catch (const std::exception& e) {
         LOGE("execute_multimodal_training_step exception: %s", e.what());

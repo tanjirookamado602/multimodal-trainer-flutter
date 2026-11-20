@@ -92,13 +92,40 @@ class _TrainingControlsState extends State<TrainingControls> {
             TextField(
               controller: _lrController,
               decoration: const InputDecoration(
-                labelText: 'Learning Rate',
+                labelText: 'Learning Rate (e.g. 0.00001 for 1e-5)',
                 border: OutlineInputBorder(),
               ),
               keyboardType: const TextInputType.numberWithOptions(decimal: true),
               onChanged: (val) {
                 widget.config.learningRate = double.tryParse(val) ?? widget.config.learningRate;
               },
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                ActionChip(
+                  avatar: const Icon(Icons.science, size: 16),
+                  label: const Text('1e-5 (Research Standard)', style: TextStyle(fontSize: 11)),
+                  backgroundColor: Colors.deepPurple.shade900,
+                  onPressed: () {
+                    setState(() {
+                      widget.config.learningRate = 0.00001;
+                      _lrController.text = '0.00001';
+                    });
+                  },
+                ),
+                const SizedBox(width: 8),
+                ActionChip(
+                  avatar: const Icon(Icons.flash_on, size: 16),
+                  label: const Text('1e-3 (Legacy Fast)', style: TextStyle(fontSize: 11)),
+                  onPressed: () {
+                    setState(() {
+                      widget.config.learningRate = 0.001;
+                      _lrController.text = '0.001';
+                    });
+                  },
+                ),
+              ],
             ),
             const SizedBox(height: 16),
             Wrap(

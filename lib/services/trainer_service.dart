@@ -34,7 +34,7 @@ class TrainerService {
     required String imagePath,
     required String prompt,
     String response = '',
-    double learningRate = 0.001,
+    double learningRate = 0.00001,
   }) async {
     final step = await _bridge.runTrainingStep(
       imagePath: imagePath,
